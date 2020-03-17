@@ -1,9 +1,9 @@
 <div class="main-container">
-  <div
-    class="container"
-    [ngStyle]="{ '-webkit-filter': isMenuShown ? 'blur(5px)' : 'none' }"
-  >
-    <div class="top">
+  <div class="container">
+    <div
+      class="top"
+      [ngClass]="bluringClasses()"
+    >
       <img src="../../assets/img/me.jpg" alt="ds" />
       <h1>Velibor Vasiljevic</h1>
       <h2>
@@ -16,6 +16,7 @@
       <img
         (click)="showMenu()"
         class="icon-img"
+        [ngClass]="rotatingClasses()"
         src="../../assets/icons/arrow.svg"
         alt=""
       />
@@ -23,12 +24,22 @@
   </div>
   <div *ngIf="isMenuShown" class="menu">
     <ul>
-      <li><a href=""><img src="../../assets/icons/email.svg" alt="" /></a></li>
-      <li><a href=""><img src="../../assets/icons/blog.svg" alt="" /></a></li>
-      <li><a href=""><img src="../../assets/icons/portfolio.svg" alt="" /></a></li>
-      <li><a href=""><img src="../../assets/icons/gallery.svg" alt="" /></a></li>
-      <li><a href=""><img src="../../assets/icons/about.svg" alt="" /></a></li>
-      <li><a href=""><img src="../../assets/icons/close.svg" alt="" /></a></li>
+      <li>
+        <a href=""><img src="../../assets/icons/email.svg" alt=""/></a>
+      </li>
+      <li>
+        <a href=""><img src="../../assets/icons/blog.svg" alt=""/></a>
+      </li>
+      <li>
+        <a href=""><img src="../../assets/icons/portfolio.svg" alt=""/></a>
+      </li>
+      <li>
+        <a href=""><img src="../../assets/icons/gallery.svg" alt=""/></a>
+      </li>
+      <li>
+        <a href=""><img src="../../assets/icons/about.svg" alt=""/></a>
+      </li>
+      <!-- <li><a href=""><img class="close" src="../../assets/icons/close.svg" alt="" /></a></li> -->
     </ul>
   </div>
 </div>

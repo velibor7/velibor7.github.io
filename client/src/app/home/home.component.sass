@@ -1,5 +1,11 @@
 .main-container
-
+    align-items: center
+    position: absolute
+    left: 0
+    right: 0
+    margin: auto
+    display: flex
+    flex-direction: column
     .container
         display: flex
         position: absolute
@@ -8,7 +14,9 @@
         text-align: center
         align-items: center
         color: black
-        // -webkit-filter: blur(5px)
+        left: auto
+        right: auto
+        margin: auto
         .top
             h3
                 margin-bottom: 2em
@@ -21,11 +29,6 @@
         .icon
             img
                 margin-bottom: 0
-            .icon-img:hover
-                -webkit-animation: swing 1s ease
-                animation: swing 1s ease
-                -webkit-animation-iteration-count: 1
-                animation-iteration-count: 1
 
     .menu
         display: flex
@@ -38,65 +41,49 @@
         left: 50%
         ul
             position: absolute
-            // left: -50%
             list-style-type: none
             padding: 0
             margin: 0
-            // li
-              //  left: -50%
         img
-            // margin: 0
             width: 5em
             height: 5em
 
-    @-webkit-keyframes swing
+// ngClasses, I 
+.active
+    animation: rotateLeft .2s forwards
+.notactive
+    animation: rotateRight .2s forwards
 
-        15%
-        -webkit-transform: translateY(5px)
-        transform: translateY(5px)
+.blurIn
+    animation: blurIn .2s forward
+    filter: blur(5px)
+    // background-color: blue
+.blurOut
+    animation: blurOut .2s forward
 
-        30%
-        -webkit-transform: translateY(-5px)
-        transform: translateY(-5px)
+@keyframes rotateLeft
+    0%
+        transform: rotateZ(0deg)
 
-        50%
-        -webkit-transform: translateY(3px)
-        transform: translateY(3px)
+    100%
+        transform: rotateZ(-180deg)
 
-        65%
-        -webkit-transform: translateY(-3px)
-        transform: translateY(-3px)
+@keyframes rotateRight
+    0%
+        transform: rotateZ(-180deg)
+    100%
+        transform: rotateZ(0deg)
 
-        80%
-        -webkit-transform: translateY(2px)
-        transform: translateY(2px)
+@keyframes blurIn
+    0%
+        -webkit-filter: blur(0px)
+        filter: blur(0px)
+    100%
+        -webkit-filter: blur(5px)
+        filter: blur(5px)
 
-        100%
-        -webkit-transform: translateY(0)
-        transform: translateY(0)
-
-    @keyframes swing
-
-        15%
-            -webkit-transform: translateY(5px)
-            transform: translateY(5px)
-
-        30%
-            -webkit-transform: translateY(-5px)
-            transform: translateY(-5px)
-
-        50%
-            -webkit-transform: translateY(3px)
-            transform: translateY(3px)
-
-        65%
-            -webkit-transform: translateY(-3px)
-            transform: translateY(-3px)
-
-        80%
-            -webkit-transform: translateY(2px)
-            transform: translateY(2px)
-
-        100%
-            -webkit-transform: translateY(0)
-            transform: translateY(0)
+@keyframes blurOut
+    0%
+        -webkit-filter: blur(0px)
+    100%
+        -webkit-filter: blur(5px)

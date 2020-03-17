@@ -13,5 +13,22 @@ export class HomeComponent implements OnInit {
 
   showMenu() {
     this.isMenuShown = !this.isMenuShown;
+    // console.log(this.isMenuShown);
+  }
+
+  rotatingClasses() {
+    let myClasses = {
+      active: this.isMenuShown == true,
+      notactive: this.isMenuShown == false
+    };
+    return myClasses;
+  }
+
+  bluringClasses() {
+    let myClasses = {
+      blurIn: this.isMenuShown == true,
+      blurOut: this.isMenuShown == false
+    };
+    return myClasses;
   }
 }
