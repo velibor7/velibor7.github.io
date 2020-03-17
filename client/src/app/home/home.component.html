@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngStyle]="{'-webkit-filter': isMenuShown ? 'blur(5px)' : 'none'}">
   <div class="top">
     <img src="../../assets/img/me.jpg" alt="ds" />
     <h1>Velibor Vasiljevic</h1>
@@ -9,12 +9,10 @@
     <h3>Available for hire</h3>
   </div>
   <div class="icon">
-    <img src="../../assets/icons/arrow.svg" alt="" />
+    <img (click)="showMenu()" class="icon-img" src="../../assets/icons/arrow.svg" alt="" />
   </div>
 </div>
-<!--
-
-    <div class="menu">
+    <div *ngIf="isMenuShown"class="menu">
         <img src="../../assets/icons/email.svg" alt="" />
         <img src="../../assets/icons/blog.svg" alt="" />
         <img src="../../assets/icons/portfolio.svg" alt="" />
@@ -22,5 +20,3 @@
         <img src="../../assets/icons/about.svg" alt="" />
         <img src="../../assets/icons/close.svg" alt="" />
     </div>
-    
--->
