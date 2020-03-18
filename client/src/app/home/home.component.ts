@@ -4,7 +4,9 @@ import {
   state,
   style,
   animate,
-  transition
+  transition,
+  query,
+  stagger
 } from "@angular/animations";
 @Component({
   selector: "app-home",
@@ -15,17 +17,38 @@ import {
       state(
         "show",
         style({
-          opacity: 1
+          transform: "translateY(0)"
+          // opacity: 1
         })
       ),
       state(
         "hide",
         style({
-          opacity: 0
+          transform: "translateY(500%)"
+          // opacity: 0
         })
       ),
-      transition("show => hide", animate("400ms ease-out")),
-      transition("hide => show", animate("400ms ease-in"))
+
+      //* working
+      transition("show => hide", animate("400ms ease")),
+      transition("hide => show", animate("400ms ease"))
+
+      /*
+      transition("shown => hide", [
+        // query("li", style({ transform: "translateX(-400%)" })),
+        query("li", stagger("600ms", [animate("500ms ease")]))
+      ]),
+*/
+      /*
+      transition("* => *", [
+        query("li", style({ transform: "translateX(-400%)" })),
+        query(
+          "li",
+          stagger("600ms", [
+            animate("500ms", style({ transform: "translateX(0)" }))
+          ])
+        )
+      ]) */
     ]),
 
     trigger("topBlur", [
