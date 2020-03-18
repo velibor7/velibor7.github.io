@@ -9,4 +9,18 @@
     <p>Django</p>
     <p>REST</p>
     <p>iddkk?!!?</p>
+
+    <h3>Animations </h3>
+
+    <h4>pop-up</h4>
+    <div [@popOverState]="stateName">
+        <p>Button below changes "show" variable.</p>
+        <p>"get stateName" method is inputed here.</p>
+        <p>popOverState is the name of the animation, and we set it up in the ts file</p>
+    </div>
+    <button (click)="toggle()">Show text</button>
+    
+    <h4>this handles multiple states</h4>
+
+    
 </div>
