@@ -1,6 +1,7 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   HostListener,
   HostBinding,
   Input
@@ -44,7 +45,7 @@ import { AppService } from "../app.service";
     ])
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   inst: AppComponent;
 
   @HostBinding("class.is-menu-shown")
@@ -58,6 +59,10 @@ export class HomeComponent implements OnInit {
     this.appService.change.subscribe(isMenuShown => {
       this.isMenuShown = isMenuShown;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.appService.change.unsubscribe();
   }
   // jebo sam ti sve
   public get menuState() {
