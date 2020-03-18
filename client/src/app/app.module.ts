@@ -7,8 +7,10 @@ import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { GalleryComponent } from './gallery/gallery.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent],
+  declarations: [AppComponent, HomeComponent, AboutComponent, PortfolioComponent, GalleryComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]
