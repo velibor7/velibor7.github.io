@@ -11,7 +11,7 @@
     </div>
     <div class="icon">
       <img
-      [@arrow]="menuState"
+        [@arrow]="menuState"
         (click)="menuToggle()"
         class="icon-img"
         src="../../assets/icons/arrow.svg"
@@ -21,23 +21,38 @@
   </div>
   <!-- slidingOut ne radi zato sto ngIf odmah ukloni element -->
   <!-- <div *ngIf="isMenuShown" class="menu" [ngClass]="slidingClasses()"> -->
-  <div class="menu" [@showMenu]="menuState" (@showMenu.start)="logAnimation($event)" (@showMenu.done)="logAnimation($event)">
-<!-- <div class="menu" [@showMenu]="menuState" > -->
+  <div
+    class="menu"
+    [@showMenu]="menuState"
+    (@showMenu.start)="logAnimation($event)"
+    (@showMenu.done)="logAnimation($event)"
+  >
+    <!-- <div class="menu" [@showMenu]="menuState" > -->
     <ul>
       <li>
-        <a href="" routerLink=""><img src="../../assets/icons/email.svg" alt=""/></a>
+        <a href="" routerLink=""
+          ><img src="../../assets/icons/email.svg" alt=""
+        /></a>
       </li>
       <li>
-        <a href="" routerLink=""><img src="../../assets/icons/blog.svg" alt=""/></a>
+        <a href="" routerLink=""
+          ><img src="../../assets/icons/blog.svg" alt=""
+        /></a>
       </li>
       <li>
-        <a href="" routerLink=""><img src="../../assets/icons/portfolio.svg" alt=""/></a>
+        <a href="" routerLink=""
+          ><img src="../../assets/icons/portfolio.svg" alt=""
+        /></a>
       </li>
       <li>
-        <a href="" routerLink=""><img src="../../assets/icons/gallery.svg" alt=""/></a>
+        <a href="" routerLink=""
+          ><img src="../../assets/icons/gallery.svg" alt=""
+        /></a>
       </li>
       <li>
-        <a href="" routerLink="/about"><img src="../../assets/icons/about.svg" alt=""/></a>
+        <a href="" routerLink="/about"
+          ><img src="../../assets/icons/about.svg" alt=""
+        /></a>
       </li>
     </ul>
   </div>
