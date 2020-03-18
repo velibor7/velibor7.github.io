@@ -1,1 +1,47 @@
 <router-outlet></router-outlet>
+<!-- (@showMenu.start)="logAnimation($event)"
+(@showMenu.done)="logAnimation($event)" -->
+
+<div class="container">
+    <div
+    class="menu"
+    [@showMenu]="menuState"
+    >
+    <ul>
+        <li>
+            <a href="" routerLink=""
+            ><img src="../../assets/icons/email.svg" alt=""
+            /></a>
+        </li>
+      <li>
+          <a href="" routerLink=""
+          ><img src="../../assets/icons/blog.svg" alt=""
+          /></a>
+        </li>
+        <li>
+            <a href="" routerLink="portfolio"
+            ><img src="../../assets/icons/portfolio.svg" alt=""
+            /></a>
+        </li>
+        <li>
+            <a href="" routerLink="gallery"
+            ><img src="../../assets/icons/gallery.svg" alt=""
+            /></a>
+        </li>
+        <li>
+            <a href="" routerLink="about"
+            ><img src="../../assets/icons/about.svg" alt=""
+            /></a>
+        </li>
+    </ul>
+</div>
+<div class="icon">
+  <img
+    [@arrow]="menuState"
+    (click)="menuToggle()"
+    class="icon-img"
+    src="../../assets/icons/arrow.svg"
+    alt=""
+  />
+</div>
+</div>
