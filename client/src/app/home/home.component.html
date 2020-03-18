@@ -19,8 +19,6 @@
       />
     </div>
   </div>
-  <!-- slidingOut ne radi zato sto ngIf odmah ukloni element -->
-  <!-- <div *ngIf="isMenuShown" class="menu" [ngClass]="slidingClasses()"> -->
   <div
     class="menu"
     [@showMenu]="menuState"
@@ -40,17 +38,17 @@
         /></a>
       </li>
       <li>
-        <a href="" routerLink=""
+        <a href="" routerLink="portfolio"
           ><img src="../../assets/icons/portfolio.svg" alt=""
         /></a>
       </li>
       <li>
-        <a href="" routerLink=""
+        <a href="" routerLink="gallery"
           ><img src="../../assets/icons/gallery.svg" alt=""
         /></a>
       </li>
       <li>
-        <a href="" routerLink="/about"
+        <a href="" routerLink="about"
           ><img src="../../assets/icons/about.svg" alt=""
         /></a>
       </li>
