@@ -31,4 +31,12 @@ export class HomeComponent implements OnInit {
     };
     return myClasses;
   }
+
+  slidingClasses() {
+    let myClasses = {
+      slideIn: this.isMenuShown == true,
+      slideOut: this.isMenuShown == false
+    };
+    return myClasses;
+  }
 }

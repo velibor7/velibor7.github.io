@@ -10,7 +10,7 @@
         Hi there! <br />
         I'm freelancer who does web development!
       </h2>
-      <h3>Available for hire</h3>
+      <button class='available'>Available for hire</button>
     </div>
     <div class="icon">
       <img
@@ -22,7 +22,8 @@
       />
     </div>
   </div>
-  <div *ngIf="isMenuShown" class="menu">
+  <!-- slidingOut ne radi zato sto ngIf odmah ukloni element -->
+  <div *ngIf="isMenuShown" class="menu" [ngClass]="slidingClasses()">
     <ul>
       <li>
         <a href=""><img src="../../assets/icons/email.svg" alt=""/></a>
