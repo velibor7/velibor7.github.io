@@ -1,29 +1,27 @@
 <div class="main-container">
   <div class="container">
-    <div
-      class="top"
-      [ngClass]="bluringClasses()"
-    >
+    <div class="top" [@topBlur]="menuState">
       <img src="../../assets/img/me.jpg" alt="ds" />
       <h1>Velibor Vasiljevic</h1>
       <h2>
         Hi there! <br />
         I'm freelancer who does web development!
       </h2>
-      <button class='available'>Available for hire</button>
+      <button class="available">Available for hire</button>
     </div>
     <div class="icon">
       <img
-        (click)="showMenu()"
+      [@arrow]="menuState"
+        (click)="menuToggle()"
         class="icon-img"
-        [ngClass]="rotatingClasses()"
         src="../../assets/icons/arrow.svg"
         alt=""
       />
     </div>
   </div>
   <!-- slidingOut ne radi zato sto ngIf odmah ukloni element -->
-  <div *ngIf="isMenuShown" class="menu" [ngClass]="slidingClasses()">
+  <!-- <div *ngIf="isMenuShown" class="menu" [ngClass]="slidingClasses()"> -->
+  <div class="menu" [@showMenu]="menuState" (@showMenu.start)="logAnimation($event)" (@showMenu.done)="logAnimation($event)">
     <ul>
       <li>
         <a href=""><img src="../../assets/icons/email.svg" alt=""/></a>
@@ -40,7 +38,6 @@
       <li>
         <a href=""><img src="../../assets/icons/about.svg" alt=""/></a>
       </li>
-      <!-- <li><a href=""><img class="close" src="../../assets/icons/close.svg" alt="" /></a></li> -->
     </ul>
   </div>
 </div>
