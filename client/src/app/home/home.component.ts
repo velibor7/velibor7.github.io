@@ -19,9 +19,11 @@ import {
 
 import { AppComponent } from "../app.component";
 import { AppService } from "../app.service";
+import { MenuDirective } from "../menu.directive";
 
 @Component({
   selector: "app-home",
+  providers: [MenuDirective],
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.sass"],
   animations: [
@@ -46,25 +48,35 @@ import { AppService } from "../app.service";
   ]
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  inst: AppComponent;
-
-  @HostBinding("class.is-menu-shown")
+  // inst: AppComponent;
+  // menuState = "show";
+  // @HostBinding("class.ovu-klasu-dodaje")
   isMenuShown = false;
 
-  constructor(private appService: AppService) {}
+  constructor(
+    private appService: AppService,
+    private menuDirective: MenuDirective
+  ) {}
 
-  // ja ovde slusam??
-  // i need to unsub
   ngOnInit(): void {
-    this.appService.change.subscribe(isMenuShown => {
+    // this.appService.change.subscribe(isMenuShown => {
+    // this.isMenuShown = isMenuShown;
+    // });
+    this.menuDirective.change.subscribe(isMenuShown => {
       this.isMenuShown = isMenuShown;
     });
   }
 
+  recieveShit($event) {
+    this.isMenuShown = $event;
+    console.log("shitty try: " + this.isMenuShown);
+  }
+
   ngOnDestroy(): void {
     this.appService.change.unsubscribe();
+    this.menuDirective.change.unsubscribe();
   }
-  // jebo sam ti sve
+
   public get menuState() {
     console.log("iz homea " + this.isMenuShown);
     return this.isMenuShown ? "show" : "hide";

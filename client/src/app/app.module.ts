@@ -11,16 +11,18 @@ import { PortfolioComponent } from "./portfolio/portfolio.component";
 import { GalleryComponent } from "./gallery/gallery.component";
 
 import { AppService } from "./app.service";
+import { MenuDirective } from "./menu.directive";
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
     PortfolioComponent,
-    GalleryComponent
+    GalleryComponent,
+    MenuDirective
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [AppService],
+  providers: [AppService, MenuDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

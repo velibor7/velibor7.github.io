@@ -38,7 +38,8 @@
 <div class="icon">
   <img
     [@arrow]="menuState"
-    (click)="menuToggle()"
+    appMenu
+    (change)="menuToggle($event)"
     class="icon-img"
     src="../../assets/icons/arrow.svg"
     alt=""
