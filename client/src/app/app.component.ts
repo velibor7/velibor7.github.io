@@ -83,9 +83,7 @@ import {
 })
 export class AppComponent {
   title = "client";
-
-  //? mislim da su host bindingi nepotrebni totalno
-  @HostBinding("class.is-menu-shown")
+  message = "random msg";
   isMenuShown = false;
 
   constructor(
@@ -93,41 +91,18 @@ export class AppComponent {
     private menuDirective: MenuDirective
   ) {}
 
-  ngOnInit(): void {
-    // this.appService.change.subscribe(isMenuShown => {
-    //   this.isMenuShown = isMenuShown;
-    // });
-    this.menuDirective.change.subscribe(isMenuShown => {
-      this.isMenuShown = this.isMenuShown;
-    });
-  }
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    this.menuDirective.change.unsubscribe();
-  }
+  ngOnInit(): void {}
+  ngOnDestroy(): void {}
 
   public get menuState() {
-    // console.log("iz app metode: " + this.isMenuShown);
-    // console.log(this.isMenuShown);
-    console.log("iz appa: " + this.isMenuShown);
     return this.isMenuShown ? "show" : "hide";
   }
 
-  menuToggle($event) {
-    this.isMenuShown = $event;
+  menuToggle() {
+    this.isMenuShown = !this.isMenuShown;
   }
 
   logAnimation($event) {
     console.log(`${this.isMenuShown} animation ${$event.phaseName}`);
   }
-  /*
-  @HostListener("click")
-  click() {
-    // 1. kad je kliknuto negde u aplikaciji, zove iz servisa
-    // toggle funkciju
-    // console.log(this.isMenuShown);
-    console.log("kliknuo si negde!");
-    this.appService.toggle();
-  }*/
 }

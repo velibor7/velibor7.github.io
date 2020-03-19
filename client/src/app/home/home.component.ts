@@ -4,7 +4,10 @@ import {
   OnDestroy,
   HostListener,
   HostBinding,
-  Input
+  Input,
+  DoCheck,
+  OnChanges,
+  SimpleChanges
 } from "@angular/core";
 
 import {
@@ -47,40 +50,30 @@ import { MenuDirective } from "../menu.directive";
     ])
   ]
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  // inst: AppComponent;
-  // menuState = "show";
-  // @HostBinding("class.ovu-klasu-dodaje")
-  isMenuShown = false;
+export class HomeComponent implements OnChanges, OnInit, OnDestroy, DoCheck {
+  @Input() message: string;
+  @Input() state: any;
 
+  isMenuShown: boolean;
   constructor(
     private appService: AppService,
     private menuDirective: MenuDirective
   ) {}
 
-  ngOnInit(): void {
-    // this.appService.change.subscribe(isMenuShown => {
-    // this.isMenuShown = isMenuShown;
-    // });
-    this.menuDirective.change.subscribe(isMenuShown => {
-      this.isMenuShown = isMenuShown;
-    });
+  ngOnInit(): void {}
+  ngDoCheck(): void {
+    console.log("state: " + this.state);
+    console.log("message: " + this.message);
   }
 
-  recieveShit($event) {
-    this.isMenuShown = $event;
-    console.log("shitty try: " + this.isMenuShown);
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnDestroy(): void {
-    this.appService.change.unsubscribe();
-    this.menuDirective.change.unsubscribe();
+    //this.appService.change.unsubscribe();
+    //this.menuDirective.change.unsubscribe();
   }
 
-  public get menuState() {
-    console.log("iz homea " + this.isMenuShown);
-    return this.isMenuShown ? "show" : "hide";
+  public get menuS() {
+    return this.state ? "show" : "hide";
   }
 }
-
-// THIS IS HOME COMPONENT

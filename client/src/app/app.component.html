@@ -38,11 +38,11 @@
 <div class="icon">
   <img
     [@arrow]="menuState"
-    appMenu
-    (change)="menuToggle($event)"
+    (click)="menuToggle()"
     class="icon-img"
     src="../../assets/icons/arrow.svg"
     alt=""
   />
 </div>
 </div>
+<app-home [state]="isMenuShown" [message]="message"></app-home>
