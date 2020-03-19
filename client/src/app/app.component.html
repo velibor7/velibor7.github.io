@@ -45,4 +45,6 @@
   />
 </div>
 </div>
-<app-home [state]="isMenuShown" [message]="message"></app-home>
+<div *ngIf="menuState">
+    <app-home [state]="menuState" [message]="message"></app-home>
+</div>

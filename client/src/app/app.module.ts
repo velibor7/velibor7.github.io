@@ -10,19 +10,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PortfolioComponent } from "./portfolio/portfolio.component";
 import { GalleryComponent } from "./gallery/gallery.component";
 
-import { AppService } from "./app.service";
-import { MenuDirective } from "./menu.directive";
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
     PortfolioComponent,
-    GalleryComponent,
-    MenuDirective
+    GalleryComponent
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [AppService, MenuDirective],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

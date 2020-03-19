@@ -19,14 +19,9 @@ import {
   query,
   stagger
 } from "@angular/animations";
-
-import { AppComponent } from "../app.component";
-import { AppService } from "../app.service";
-import { MenuDirective } from "../menu.directive";
-
 @Component({
   selector: "app-home",
-  providers: [MenuDirective],
+  providers: [],
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.sass"],
   animations: [
@@ -50,30 +45,32 @@ import { MenuDirective } from "../menu.directive";
     ])
   ]
 })
-export class HomeComponent implements OnChanges, OnInit, OnDestroy, DoCheck {
+export class HomeComponent implements OnInit, OnDestroy, DoCheck {
   @Input() message: string;
   @Input() state: any;
 
-  isMenuShown: boolean;
-  constructor(
-    private appService: AppService,
-    private menuDirective: MenuDirective
-  ) {}
+  isMenuShown: string;
+
+  constructor() {}
 
   ngOnInit(): void {}
   ngDoCheck(): void {
-    console.log("state: " + this.state);
-    console.log("message: " + this.message);
+    // console.log("state: " + typeof this.state);
+    // console.log("message: " + typeof this.message);
+    this.isMenuShown = this.state;
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnDestroy(): void {}
 
-  ngOnDestroy(): void {
-    //this.appService.change.unsubscribe();
-    //this.menuDirective.change.unsubscribe();
-  }
-
-  public get menuS() {
-    return this.state ? "show" : "hide";
+  get menuState() {
+    // console.log(this.state);
+    let nesto: string;
+    this.ngDoCheck();
+    console.log(this.isMenuShown);
+    if (this.isMenuShown == "hide") {
+      return "hide";
+    } else if (this.isMenuShown == "show") {
+      return "show";
+    }
   }
 }

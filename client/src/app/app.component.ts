@@ -7,8 +7,6 @@ import {
   HostListener,
   Directive
 } from "@angular/core";
-import { AppService } from "./app.service";
-import { MenuDirective } from "./menu.directive";
 import {
   trigger,
   state,
@@ -86,10 +84,7 @@ export class AppComponent {
   message = "random msg";
   isMenuShown = false;
 
-  constructor(
-    private appService: AppService,
-    private menuDirective: MenuDirective
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {}
   ngOnDestroy(): void {}
