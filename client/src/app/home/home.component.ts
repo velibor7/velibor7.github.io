@@ -49,28 +49,52 @@ export class HomeComponent implements OnInit, OnDestroy, DoCheck {
   @Input() message: string;
   @Input() state: any;
 
-  isMenuShown: string;
-
+  isMenuShown: any;
+  pomocna: any;
   constructor() {}
 
   ngOnInit(): void {}
   ngDoCheck(): void {
     // console.log("state: " + typeof this.state);
     // console.log("message: " + typeof this.message);
-    this.isMenuShown = this.state;
+    // this.isMenuShown = this.state;
+    console.log(this.state);
+    // console.log(this.state);
+    // console.log(this.message);
+    // console.log(this.isMenuShown);
   }
 
   ngOnDestroy(): void {}
 
-  get menuState() {
-    // console.log(this.state);
-    let nesto: string;
-    this.ngDoCheck();
-    console.log(this.isMenuShown);
-    if (this.isMenuShown == "hide") {
+  menuState() {
+    // this.ngDoCheck();
+    // console.log(this.isMenuShown);
+    if (this.isMenuShown == false) {
+      //console.log("isMenuShown is false");
+      this.pomocna = "hide";
       return "hide";
-    } else if (this.isMenuShown == "show") {
+    } else if (this.isMenuShown == true) {
+      //console.log("isMenuShown is true");
+      this.pomocna = "show";
+      return this.pomocna;
+    } else {
+      //console.log("here too");
       return "show";
     }
+  }
+
+  debilnaFja() {
+    this.ngDoCheck();
+    console.log(this.isMenuShown);
+    if (this.isMenuShown == false) {
+      console.log("uso");
+      this.pomocna = "hide";
+      return "hide";
+    } else if (this.isMenuShown == true) {
+      console.log("sad odje");
+      this.pomocna = "show";
+      return "show";
+    }
+    return this.pomocna;
   }
 }

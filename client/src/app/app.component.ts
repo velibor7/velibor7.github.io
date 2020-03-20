@@ -47,14 +47,14 @@ import {
       state(
         "show",
         style({
-          // opacity: 1,
+          opacity: 1,
           filter: "blur(5px)"
         })
       ),
       state(
         "hide",
         style({
-          // opacity: 0,
+          opacity: 0,
           filter: "blur(0px)"
         })
       ),
@@ -82,22 +82,22 @@ import {
 export class AppComponent {
   title = "client";
   message = "random msg";
-  isMenuShown = false;
+  isMenuShownVar = false;
 
   constructor() {}
 
   ngOnInit(): void {}
   ngOnDestroy(): void {}
 
-  public get menuState() {
-    return this.isMenuShown ? "show" : "hide";
+  isMenuShown() {
+    return this.isMenuShownVar ? "show" : "hide";
   }
 
   menuToggle() {
-    this.isMenuShown = !this.isMenuShown;
+    this.isMenuShownVar = !this.isMenuShownVar;
   }
 
   logAnimation($event) {
-    console.log(`${this.isMenuShown} animation ${$event.phaseName}`);
+    console.log(`${this.isMenuShownVar} animation ${$event.phaseName}`);
   }
 }

@@ -5,7 +5,7 @@
 <div class="container">
     <div
     class="menu"
-    [@showMenu]="menuState"
+    [@showMenu]="isMenuShown()"
     >
     <ul>
         <li>
@@ -37,7 +37,7 @@
 </div>
 <div class="icon">
   <img
-    [@arrow]="menuState"
+    [@arrow]="isMenuShown()"
     (click)="menuToggle()"
     class="icon-img"
     src="../../assets/icons/arrow.svg"
@@ -45,6 +45,7 @@
   />
 </div>
 </div>
-<div *ngIf="menuState">
-    <app-home [state]="menuState" [message]="message"></app-home>
+<div *ngIf="isMenuShown()">
+
+    <app-home [state]="isMenuShownVar" [message]="message"></app-home>
 </div>
